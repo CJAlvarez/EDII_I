@@ -18,12 +18,12 @@ int main(int argc, char const *argv[]) {
 	wFile.open (wPerson.firstname + wPerson.lastname + "_" + wPerson.zip + ".txt", ios_base::out);
 	DelimTextBuffer wBuffer('|', MaxBUfferSize);
 		// Pack
-	wBuffer.Pack(wPerson.firstname*, sizeof(wPerson.firstname));
-	wBuffer.Pack(wPerson.lastname*, sizeof(wPerson.lastname));
-	wBuffer.Pack(wPerson.city*, sizeof(wPerson.city));
-	wBuffer.Pack(wPerson.address*, sizeof(wPerson.address));
-	wBuffer.Pack(wPerson.state*, sizeof(wPerson.state));
-	wBuffer.Pack(wPerson.zip*, sizeof(wPerson.zip));
+	wBuffer.Pack(*wPerson.firstname, sizeof(wPerson.firstname));
+	wBuffer.Pack(*wPerson.lastname, sizeof(wPerson.lastname));
+	wBuffer.Pack(*wPerson.city, sizeof(wPerson.city));
+	wBuffer.Pack(*wPerson.address, sizeof(wPerson.address));
+	wBuffer.Pack(*wPerson.state, sizeof(wPerson.state));
+	wBuffer.Pack(*wPerson.zip, sizeof(wPerson.zip));
 		// End_Pack
 	wBuffer.Write(wFile);
 	wFile.close();
@@ -37,12 +37,12 @@ int main(int argc, char const *argv[]) {
 	DelimTextBuffer rBuffer('|', MaxBUfferSize);
 	rBuffer.Read(rFile);
 		// Unpack
-	rBuffer.Unpack(rPerson.firstname*);
-	rBuffer.Unpack(rPerson.lastname*);
-	rBuffer.Unpack(rPerson.city*);
-	rBuffer.Unpack(rPerson.address*);
-	rBuffer.Unpack(rPerson.state*);
-	rBuffer.Unpack(rPerson.zip*);
+	rBuffer.Unpack(*rPerson.firstname);
+	rBuffer.Unpack(*rPerson.lastname);
+	rBuffer.Unpack(*rPerson.city);
+	rBuffer.Unpack(*rPerson.address);
+	rBuffer.Unpack(*rPerson.state);
+	rBuffer.Unpack(*rPerson.zip);
 		// End_Unpack
 	rFile.close() ;
 	
