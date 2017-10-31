@@ -3,12 +3,9 @@
 #include "DelimTextBuffer.h"
 #include <iostream>
 
-using std::cin;
-using std::cout;
-using std::endl;
-using std::string;
+using namespace std;
 
-Const int MaxBUfferSize = 200;
+const int MaxBUfferSize = 200;
 
 int WritePerson(ostream&, Person&);
 
@@ -18,22 +15,19 @@ int main(int argc, char const *argv[]) {
 	
 	// Write it
 	ofstream wFile;
-	wFile.open (p.firstname + p.lastname + "_" + p.zip +".txt");
-	
+	wFile.open (p.firstname + p.lastname + "_" + p.zip + ".txt");
+	DelimTextBuffer wBuffer('|', MaxBUfferSize);
+		// Pack
+	wBuffer.Write(wFile);
 	wFile.close();
-	cout << a.toString() << endl;
-	cout << a.toString() << endl;
+	
+	// Read it
+	ifstream rFile;
+	rFile.open(p.firstname + p.lastname + "_" + p.zip + ".txt", ios_base::in);
+	DelimTextBuffer rBuffer('|', MaxBUfferSize);
+	wBuffer.Read(rFile);
+		// Unpack
+	rFile.close() ;
 	return 0;
-}
-
-int WritePerson(ostream& stream, Person& p) {
-	char buffer [MaxBufferSize]; 
-    strcpy(buffer, p.LastName); strcat(buffer, “|”);
-    strcat(buffer, p.FistName); strcat(buffer, “|”);
-    
-    strcat(buffer,p.Zipcode); strcat(buffer, “|”);
-    short length=strlen(buffer);
-    stream.write (&length, sizeof(length));
-    stream.write(&buffer, length)
 }
 
