@@ -7,8 +7,6 @@ using namespace std;
 
 const int MaxBUfferSize = 200;
 
-int WritePerson(ostream&, Person&);
-
 int main(int argc, char const *argv[]) {
 /* WRITING */
 	Person wPerson("George", "Lucas", "Ackerman Claude 1943", "Chicago", "Illinois", "60007");
