@@ -15,7 +15,7 @@ int main(int argc, char const *argv[]) {
 	
 	// Write it
 	ofstream wFile;
-	wFile.open (wPerson.firstname + wPerson.lastname + "_" + wPerson.zip + ".txt");
+	wFile.open (wPerson.firstname + wPerson.lastname + "_" + wPerson.zip + ".txt", ios_base::out);
 	DelimTextBuffer wBuffer('|', MaxBUfferSize);
 		// Pack
 	wBuffer.Pack(wPerson.firstname*, sizeof(wPerson.firstname));
