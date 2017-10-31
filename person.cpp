@@ -1,10 +1,10 @@
+// person.cpp
 #include "person.h"
-#include <string>
-#include <sstream>
+
 using std::string;
 using std::stringstream;
 
-Person::Person(string firstname,string lastname,string address,string city, string state, string zip){
+Person::Person(string firstname, string lastname, string address, string city, string state, string zip) {
 	this -> firstname = firstname;
 	this -> lastname = lastname;
 	this -> address = address;
