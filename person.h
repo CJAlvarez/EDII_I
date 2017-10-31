@@ -8,6 +8,8 @@
 using std::string;
 
 class Person {
+	
+public:
 	string firstname;
 	string lastname;
 	string address;
@@ -15,7 +17,6 @@ class Person {
 	string state;
 	string zip;
 	
-public:
 	/* @param: firstname, lastname, address, city, state, zip. */
 	Person(string, string, string, string, string, string);
 	string toString();

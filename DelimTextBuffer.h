@@ -18,10 +18,10 @@ private:
 	
 public:
 	DelimTextBuffer(char, int);
-	int Read (istream& file);
-	int Write (ostream& file) const;
-	int Pack(const char* str, int size = -1 );
-	int Unpack(char* str);
+	int Read (istream&);
+	int Write (ostream&) const;
+	int Pack(const char*, int size = -1 );
+	int Unpack(char*);
 };
 
 #endif
